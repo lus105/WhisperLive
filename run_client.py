@@ -13,7 +13,7 @@ if __name__ == "__main__":
                         help='Language')
     parser.add_argument('--model',
                         type=str,
-                        default="small",
+                        default="large-v2",
                         help='model type')
     parser.add_argument('--use_vad',
                         type=bool,
