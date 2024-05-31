@@ -462,9 +462,10 @@ class TranscriptionTeeClient:
         if save_file is None:
             process = (
                 ffmpeg
-                .input(hls_url, threads=0)
+                .input(hls_url)
                 .output('-', format='s16le', acodec='pcm_s16le', ac=1, ar=self.rate)
-                .run_async(pipe_stdout=True, pipe_stderr=True)
+                .global_args('-loglevel', 'error')
+                .run_async(pipe_stdout=True)
             )
         else:
             input = ffmpeg.input(hls_url, threads=0)
